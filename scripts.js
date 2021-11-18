@@ -18,3 +18,10 @@ windyInit(options, (windyAPI) => {
   // .map is instance of Leaflet map
 });
 // Windy API End----------->
+
+fetch(
+    "http://api.openweathermap.org/data/2.5/weather?q=atlanta&appid=a42d1fa361f89de82770966377d69133"
+).then(response => response.json())
+.then(body => {
+    console.log(body);
+});
