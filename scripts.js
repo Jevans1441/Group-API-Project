@@ -46,4 +46,5 @@ btn.addEventListener("click", (e) => {
       });
   }
   fetchWeather();
+
 });
