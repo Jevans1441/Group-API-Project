@@ -19,9 +19,32 @@ windyInit(options, (windyAPI) => {
 });
 // Windy API End----------->
 
-fetch(
-    "http://api.openweathermap.org/data/2.5/weather?q=atlanta&appid=a42d1fa361f89de82770966377d69133"
-).then(response => response.json())
-.then(body => {
-    console.log(body);
+// variables start
+const zipCode = document.querySelector("#zipCode");
+const btn = document.querySelector(".submit");
+//   variables end
+
+btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const userZip = zipCode.value;
+  const url = `http://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
+  function fetchWeather() {
+    //   inputs API URL
+    fetch(url)
+      .then((Response) => Response.json())
+      .then((body) => {
+        //local variables
+        latitude = document.querySelector("#latitude");
+
+        let keys = Object.keys(body.main);
+        for (let i = 0; i < keys.length; i++) {
+          //   let key = keys[i];
+          // let value = body.main[key];
+          console.log(body);
+        }
+        latitude.innerHTML = body.coord.lat;
+      });
+  }
+  fetchWeather();
+
 });

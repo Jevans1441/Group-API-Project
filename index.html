@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation Starter Template</title>
     <!-- Foundation start -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
-        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
+        crossorigin="anonymous"> -->
     <!-- Foundation End -->
     <link rel="stylesheet" href="styles.css">
     <!-- Windy API Start-->
@@ -22,7 +22,13 @@
 <body>
     <h1>Hello, world!</h1>
     <div id="windy"></div>
+    This is <span id="latitude"></span>
 
+    <form id="form">
+        <label for="zipCode">ZipCode</label>
+        <input class='' placeholder="Zip Code" id='zipCode'>
+        <button class="submit">Submit</button>
+    </form>
 
     <script src="scripts.js"></script>
 </body>
