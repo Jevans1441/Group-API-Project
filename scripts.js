@@ -28,6 +28,7 @@ btn.addEventListener("click", (e) => {
   e.preventDefault();
   const userZip = zipCode.value;
   const url = `http://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
+  console.log(url);
   function fetchWeather() {
     //   inputs API URL
     fetch(url)
@@ -46,5 +47,4 @@ btn.addEventListener("click", (e) => {
       });
   }
   fetchWeather();
-
 });
