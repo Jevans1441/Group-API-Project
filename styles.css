@@ -1,6 +1,8 @@
 #windy {
-    width: 80%;
+    width: 95%;
     height: 40vh;
+    position: relative;
+    margin: auto;
 }
 
 p1 {
@@ -14,6 +16,8 @@ p1 {
 .menu{
     background-color: rgb(49, 49, 49);
 
-
 }
 
+a {
+    color: #fff;
+}
