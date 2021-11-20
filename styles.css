@@ -1,6 +1,9 @@
 #windy {
+    margin: auto;
+    position: relative;
+    justify-content: center;
     width: 80%;
-    height: 40vh;
+    height: 60vh;
 }
 
 p1 {
@@ -13,7 +16,5 @@ p1 {
 
 .menu{
     background-color: rgb(49, 49, 49);
-
-
 }
 
