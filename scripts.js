@@ -8,7 +8,6 @@ const options = {
   lon: -94.5,
   zoom: 5,
 };
-
 // Initialize Windy API
 windyInit(options, (windyAPI) => {
   // windyAPI is ready, and contain 'map', 'store',
@@ -17,6 +16,7 @@ windyInit(options, (windyAPI) => {
   const { map } = windyAPI;
   // .map is instance of Leaflet map
 });
+
 // Windy API End----------->
 
 // variables start
@@ -28,7 +28,8 @@ btn.addEventListener("click", (e) => {
   e.preventDefault();
   const userZip = zipCode.value;
   const url = `http://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
-  removeHidden();
+  removeHidden(); //shows paragraph information
+  document.forms["form"].reset(); //resets form after input
   console.log(url);
 
   function fetchWeather() {
@@ -54,8 +55,9 @@ btn.addEventListener("click", (e) => {
   }
   fetchWeather();
 });
-
+// shows paragraph information start
 const removeHidden = () => {
   const para1 = document.getElementById("para1");
   para1.classList.remove("hidden");
 };
+// shows paragraph information end
