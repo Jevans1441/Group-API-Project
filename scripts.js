@@ -21,7 +21,7 @@ windyInit(options, (windyAPI) => {
 
 // variables start
 const zipCode = document.querySelector("#zipCode");
-const btn = document.querySelector(".submit");
+const btn = document.querySelector(".button");
 //   variables end
 
 btn.addEventListener("click", (e) => {
