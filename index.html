@@ -20,14 +20,17 @@
 <body>
     <h1>Hello, world!</h1>
     <div id="windy"></div>
-    This is <span id="latitude"></span>
-
     <form id="form">
-        <label for="zipCode">ZipCode</label>
+        <label for="zipCode">Please enter your zipcode</label>
         <input class='' placeholder="Zip Code" id='zipCode'>
         <button class="submit">Submit</button>
     </form>
-
+    <p1 id="para1" class='hidden'>
+        The current temperature is <span id="currentTemp"></span> <br>
+        The high for today is <span id="highTemp"></span> <br>
+        The low for today is <span id="lowTemp"></span> <br>
+        It currently feels like <span id="feelsLike"></span> <br>
+    </p1>
     <script src="scripts.js"></script>
 </body>
 
