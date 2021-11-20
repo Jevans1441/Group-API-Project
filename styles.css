@@ -3,6 +3,14 @@
     height: 40vh;
 }
 
+p1 {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
 .menu{
     background-color: rgb(49, 49, 49);
 

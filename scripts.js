@@ -28,23 +28,34 @@ btn.addEventListener("click", (e) => {
   e.preventDefault();
   const userZip = zipCode.value;
   const url = `http://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
+  removeHidden();
   console.log(url);
+
   function fetchWeather() {
-    //   inputs API URL
-    fetch(url)
+    fetch(url) //inputs API URL
       .then((Response) => Response.json())
       .then((body) => {
-        //local variables
-        latitude = document.querySelector("#latitude");
+        //local variables start
+        currentTemp = document.querySelector("#currentTemp");
+        highTemp = document.querySelector("#highTemp");
+        lowTemp = document.querySelector("#lowTemp");
+        feelsLike = document.querySelector("#feelsLike");
+        //local variables end
 
         let keys = Object.keys(body.main);
         for (let i = 0; i < keys.length; i++) {
-          //   let key = keys[i];
-          // let value = body.main[key];
           console.log(body);
         }
-        latitude.innerHTML = body.coord.lat;
+        currentTemp.innerHTML = body.main.temp;
+        highTemp.innerHTML = body.main.temp_max;
+        lowTemp.innerHTML = body.main.temp_min;
+        feelsLike.innerHTML = body.main.feels_like;
       });
   }
   fetchWeather();
 });
+
+const removeHidden = () => {
+  const para1 = document.getElementById("para1");
+  para1.classList.remove("hidden");
+};
