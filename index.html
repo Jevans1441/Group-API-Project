@@ -18,17 +18,17 @@
 
 </head>
 
-<body>    
+<body>
     <ul class="dropdown menu" data-dropdown-menu>
         <li>
-          <a href="#">Weather map</a>
-          <ul class="menu">
-            <li><a href="#">Item 1A</a></li>
-            <!-- ... -->
-          </ul>
+            <a href="#">Weather map</a>
+            <ul class="menu">
+                <li><a href="#">Item 1A</a></li>
+                <!-- ... -->
+            </ul>
         </li>
         <li><a href="#">Local Forecast</a></li>
-      </ul>
+    </ul>
     <h1>Weather in the US</h1>
 
     <div id="windy"></div>
@@ -45,16 +45,19 @@
         The low for today is <span id="lowTemp"></span> <br>
         It currently feels like <span id="feelsLike"></span> <br>
     </p1>
-  
-<!-- Scripts -->
+    <p2>
+        <span id="sevenDayForcast"></span>
+    </p2>
+
+    <!-- Scripts -->
     <script src="foundation/jquery.js"></script>
     <script src="foundation/what-input.js"></script>
     <script src="foundation/foundation.js"></script>
     <script src="scripts.js"></script>
     <script>
         $(document).foundation();
-      </script>
-  
+    </script>
+
 </body>
 
 </html>
