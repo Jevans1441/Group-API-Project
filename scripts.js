@@ -22,13 +22,14 @@ windyInit(options, (windyAPI) => {
 // variables start
 const zipCode = document.querySelector("#zipCode");
 const btn = document.querySelector(".button");
-//   variables end
+// variables end
 
 btn.addEventListener("click", (e) => {
   e.preventDefault();
   const userZip = zipCode.value;
   const url = `http://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
   removeHidden(); //shows paragraph information
+
   document.forms["form"].reset(); //resets form after input
   console.log(url);
 
@@ -36,28 +37,45 @@ btn.addEventListener("click", (e) => {
     fetch(url) //inputs API URL
       .then((Response) => Response.json())
       .then((body) => {
-        //local variables start
+        //local variables for fetchWeather start
         currentTemp = document.querySelector("#currentTemp");
         highTemp = document.querySelector("#highTemp");
         lowTemp = document.querySelector("#lowTemp");
         feelsLike = document.querySelector("#feelsLike");
-        //local variables end
+        //local variables for fetchWeather end
 
         let keys = Object.keys(body.main);
         for (let i = 0; i < keys.length; i++) {
-          console.log(body);
+          // console.log(body);
         }
         currentTemp.innerHTML = body.main.temp;
         highTemp.innerHTML = body.main.temp_max;
         lowTemp.innerHTML = body.main.temp_min;
         feelsLike.innerHTML = body.main.feels_like;
+        longitude = body.coord.lon;
+        latitude = body.coord.lat;
+
+        //Seven Day forcast
+        const sevenDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
+        function fetchForcast() {
+          fetch(sevenDayUrl)
+            .then((Response) => Response.json())
+            .then((body) => {
+              console.log(body.daily);
+
+              //local variable for fetchForcast start
+              sevenDayForcast = document.querySelector("#sevenDayForcast");
+              //local variable for fetchForcast end
+            });
+        }
+        fetchForcast();
       });
   }
   fetchWeather();
 });
-// shows paragraph information start
+
+// shows paragraph information
 const removeHidden = () => {
   const para1 = document.getElementById("para1");
   para1.classList.remove("hidden");
 };
-// shows paragraph information end
