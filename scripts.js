@@ -33,6 +33,7 @@ btn.addEventListener("click", (e) => {
   document.forms["form"].reset(); //resets form after input
   console.log(url);
 
+  //fetch current weather for today
   function fetchWeather() {
     fetch(url) //inputs API URL
       .then((Response) => Response.json())
@@ -45,27 +46,27 @@ btn.addEventListener("click", (e) => {
         //local variables for fetchWeather end
 
         let keys = Object.keys(body.main);
-        for (let i = 0; i < keys.length; i++) {
-          // console.log(body);
-        }
+        for (let i = 0; i < keys.length; i++) { }
+        
         currentTemp.innerHTML = body.main.temp;
         highTemp.innerHTML = body.main.temp_max;
         lowTemp.innerHTML = body.main.temp_min;
         feelsLike.innerHTML = body.main.feels_like;
-        longitude = body.coord.lon;
-        latitude = body.coord.lat;
+        longitude = body.coord.lon; // used for sevenDayURL
+        latitude = body.coord.lat; // used for sevenDayURL
 
         //Seven Day forcast
-        const sevenDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
+        const sevenDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
         function fetchForcast() {
           fetch(sevenDayUrl)
             .then((Response) => Response.json())
             .then((body) => {
               console.log(body.daily);
-
               //local variable for fetchForcast start
               sevenDayForcast = document.querySelector("#sevenDayForcast");
               //local variable for fetchForcast end
+
+              sevenDayForcast.innerHTML = body.daily[0].temp.day;
             });
         }
         fetchForcast();
@@ -74,8 +75,9 @@ btn.addEventListener("click", (e) => {
   fetchWeather();
 });
 
-// shows paragraph information
+// shows paragraph information start
 const removeHidden = () => {
   const para1 = document.getElementById("para1");
   para1.classList.remove("hidden");
 };
+// shows paragraph information end
