@@ -19,37 +19,38 @@
 </head>
 
 <body>
-    <ul class="dropdown menu" data-dropdown-menu>
-        <li>
-            <a href="#">Weather map</a>
-            <ul class="menu">
-                <li><a href="#">Item 1A</a></li>
-                <!-- ... -->
-            </ul>
-        </li>
-        <li><a href="#">Local Forecast</a></li>
-    </ul>
-    <h1>Weather in the US</h1>
-
-    <div id="windy"></div>
-
-    <form id="form">
-        <label for="zipCode">Please enter your zipcode</label>
-        <input class='' placeholder="Zip Code" id='zipCode'>
-        <button class="button" type="button">Submit</button>
-    </form>
-
-    <p1 id="para1" class='hidden'>
-        The current temperature is <span id="currentTemp"></span> <br>
-        The high for today is <span id="highTemp"></span> <br>
-        The low for today is <span id="lowTemp"></span> <br>
-        It currently feels like <span id="feelsLike"></span> <br>
-    </p1>
-    <p2>
-        
-        <span id="sevenDayForcast"></span>
-    </p2>
-
+    
+    <div class="card" style="width: 90vw;">
+        <div class="card-divider">
+            <h1>Weather in the US</h1>
+        </div>
+        <div class="card-section">
+            <div id="windy"></div>
+            <div id="form-container">
+                <form id="form">
+                    <input class='resizedTextBox' placeholder="Zip Code" id='zipCode'>
+                    <button class="button" type="button">Submit</button>
+                </form>
+                <div class="card hidden" id="currentCard" style="width: 20vw">
+                    <p1 id="para1" class='hidden'>
+                        <h4>Your Local Weather</h4>
+                        Current <span id="currentTemp"></span> °F <br>
+                        High <span id="highTemp"></span> °F <br>
+                        Low <span id="lowTemp"></span> °F <br>
+                        Feels like <span id="feelsLike"></span> °F <br>
+                    </p1>
+                </div>
+                <!-- <p1 id="para1" class='hidden'>
+                    Current <span id="currentTemp"></span> °F <br>
+                    High <span id="highTemp"></span> °F <br>
+                    Low <span id="lowTemp"></span> °F <br>
+                    Feels like <span id="feelsLike"></span> °F <br>
+                </p1> -->
+            </div>
+           
+        </div>
+    </div>
+    
     <!-- Scripts -->
     <script src="foundation/jquery.js"></script>
     <script src="foundation/what-input.js"></script>
@@ -62,3 +63,4 @@
 </body>
 
 </html>
+

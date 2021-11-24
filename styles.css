@@ -3,11 +3,8 @@
     height: 40vh;
     position: relative;
     margin: auto;
+    border: 3px solid rgb(31, 118, 231);
 
-}
-
-p1 {
-    display: block;
 }
 
 .hidden {
@@ -20,4 +17,50 @@ p1 {
 
 a {
     color: #fff;
+}
+
+p1{
+    display: block;
+    text-align: center;
+}
+
+.resizedTextBox{
+    width: 175px;
+    height: 35px;
+    margin: 10px;
+    border: 2px solid rgb(31, 118, 231);
+}
+
+.button{
+    margin-top: 12px;
+}
+
+.card{
+    position: relative;
+    margin: auto;
+    border: 2px solid rgb(31, 118, 231);
+}
+
+h1{
+    position: relative;
+    margin: auto;
+    justify-content: center;
+}
+.card-divider{
+    border: 2px solid rgb(31, 118, 231);
+
+}
+
+form{
+    text-align: center;
+
+}
+
+span{
+    color:rgb(31, 118, 231);
+}
+
+h4{
+    color:rgb(31, 118, 231);
+    
 }

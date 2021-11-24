@@ -78,6 +78,14 @@ btn.addEventListener("click", (e) => {
 // shows paragraph information start
 const removeHidden = () => {
   const para1 = document.getElementById("para1");
+  const currentCard = document.getElementById("currentCard")
   para1.classList.remove("hidden");
+  currentCard.classList.remove("hidden");
 };
 // shows paragraph information end
+
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+const d = new Date();
+let day = days[d.getDay()];
+console.log(day);
