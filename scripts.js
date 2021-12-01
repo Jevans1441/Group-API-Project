@@ -66,7 +66,7 @@ btn.addEventListener("click", (e) => {
               sevenDayForcast = document.querySelector("#sevenDayForcast");
               //local variable for fetchForcast end
 
-              sevenDayForcast.innerHTML = body.daily[0].temp.day;
+              // sevenDayForcast.innerHTML = body.daily[0].temp.day;
             });
         }
         fetchForcast();

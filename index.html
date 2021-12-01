@@ -31,21 +31,32 @@
                     <input class='resizedTextBox' placeholder="Zip Code" id='zipCode'>
                     <button class="button" type="button">Submit</button>
                 </form>
-                <div class="card hidden" id="currentCard" style="width: 20vw">
+                
+                <div class="card hidden" id="currentCard">
                     <p1 id="para1" class='hidden'>
-                        <h4>Your Local Weather</h4>
-                        Current <span id="currentTemp"></span> °F <br>
-                        High <span id="highTemp"></span> °F <br>
-                        Low <span id="lowTemp"></span> °F <br>
-                        Feels like <span id="feelsLike"></span> °F <br>
+                        <ul class="tabs" data-tabs id="weather-tabs">
+                            <li class="tabs-title is-active"><a href="#todayWeather" aria-selected="true">Today</a></li>
+                            <li class="tabs-title"><a data-tabs-target="forecast" href="#forecast">Forecast</a></li>
+                        </ul>
+
+                        <div class="tabs-content" data-tabs-content="weather-tabs">
+                            <div class="tabs-panel is-active" id="todayWeather">
+                                <h4>Your Local Weather</h4>
+                                Current <span id="currentTemp"></span> °F <br>
+                                High <span id="highTemp"></span> °F <br>
+                                Low <span id="lowTemp"></span> °F <br>
+                                Feels like <span id="feelsLike"></span> °F <br>
+                             </div>
+                            <div class="tabs-panel" id="forecast">
+                                <h4>7 Day Forecast</h4>
+                            </div>
+                        </div>
+
+                    
+                        
+                        
                     </p1>
                 </div>
-                <!-- <p1 id="para1" class='hidden'>
-                    Current <span id="currentTemp"></span> °F <br>
-                    High <span id="highTemp"></span> °F <br>
-                    Low <span id="lowTemp"></span> °F <br>
-                    Feels like <span id="feelsLike"></span> °F <br>
-                </p1> -->
             </div>
            
         </div>
