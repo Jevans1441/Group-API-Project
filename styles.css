@@ -64,3 +64,15 @@ h4{
     color:rgb(31, 118, 231);
     
 }
+
+#currentCard{
+    width: 50vw;
+
+    
+}
+
+@media only screen and (min-width: 750px) {
+    #currentCard{
+        width: 30vw;
+    }    
+}
