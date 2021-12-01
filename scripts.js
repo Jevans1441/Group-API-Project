@@ -43,11 +43,13 @@ btn.addEventListener("click", (e) => {
         highTemp = document.querySelector("#highTemp");
         lowTemp = document.querySelector("#lowTemp");
         feelsLike = document.querySelector("#feelsLike");
+        iconElement = document.querySelector(".weather-icon");
         //local variables for fetchWeather end
 
         let keys = Object.keys(body.main);
-        for (let i = 0; i < keys.length; i++) { }
-        
+        for (let i = 0; i < keys.length; i++) {}
+
+        weatherIconId = body.weather[0].icon;
         currentTemp.innerHTML = body.main.temp;
         highTemp.innerHTML = body.main.temp_max;
         lowTemp.innerHTML = body.main.temp_min;
@@ -67,6 +69,10 @@ btn.addEventListener("click", (e) => {
               //local variable for fetchForcast end
 
               // sevenDayForcast.innerHTML = body.daily[0].temp.day;
+              function displayWeather() {
+                iconElement.innerHTML = `<img src="icons/${weatherIconId}.png"/>`;
+              }
+              displayWeather();
             });
         }
         fetchForcast();
@@ -78,13 +84,21 @@ btn.addEventListener("click", (e) => {
 // shows paragraph information start
 const removeHidden = () => {
   const para1 = document.getElementById("para1");
-  const currentCard = document.getElementById("currentCard")
+  const currentCard = document.getElementById("currentCard");
   para1.classList.remove("hidden");
   currentCard.classList.remove("hidden");
 };
 // shows paragraph information end
 
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 const d = new Date();
 let day = days[d.getDay()];

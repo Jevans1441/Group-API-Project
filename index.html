@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    
+
     <div class="card" style="width: 90vw;">
         <div class="card-divider">
             <h1>Weather in the US</h1>
@@ -31,7 +31,7 @@
                     <input class='resizedTextBox' placeholder="Zip Code" id='zipCode'>
                     <button class="button" type="button">Submit</button>
                 </form>
-                
+
                 <div class="card hidden" id="currentCard">
                     <p1 id="para1" class='hidden'>
                         <ul class="tabs" data-tabs id="weather-tabs">
@@ -42,26 +42,29 @@
                         <div class="tabs-content" data-tabs-content="weather-tabs">
                             <div class="tabs-panel is-active" id="todayWeather">
                                 <h4>Your Local Weather</h4>
+                                <div class="weather-icon">
+                                    <img src="icons/unknown.png" alt="">
+                                </div>
                                 Current <span id="currentTemp"></span> °F <br>
                                 High <span id="highTemp"></span> °F <br>
                                 Low <span id="lowTemp"></span> °F <br>
                                 Feels like <span id="feelsLike"></span> °F <br>
-                             </div>
+                            </div>
                             <div class="tabs-panel" id="forecast">
                                 <h4>7 Day Forecast</h4>
                             </div>
                         </div>
 
-                    
-                        
-                        
+
+
+
                     </p1>
                 </div>
             </div>
-           
+
         </div>
     </div>
-    
+
     <!-- Scripts -->
     <script src="foundation/jquery.js"></script>
     <script src="foundation/what-input.js"></script>
@@ -74,4 +77,3 @@
 </body>
 
 </html>
-
