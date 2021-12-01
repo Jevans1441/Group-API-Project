@@ -43,11 +43,13 @@ btn.addEventListener("click", (e) => {
         highTemp = document.querySelector("#highTemp");
         lowTemp = document.querySelector("#lowTemp");
         feelsLike = document.querySelector("#feelsLike");
+        iconElement = document.querySelector(".weather-icon");
         //local variables for fetchWeather end
-
         let keys = Object.keys(body.main);
-        for (let i = 0; i < keys.length; i++) { }
-        
+        for (let i = 0; i < keys.length; i++) {}
+        console.log(body.weather[0].icon);
+
+        weatherIconId = body.weather[0].icon;
         currentTemp.innerHTML = body.main.temp;
         highTemp.innerHTML = body.main.temp_max;
         lowTemp.innerHTML = body.main.temp_min;
@@ -55,7 +57,6 @@ btn.addEventListener("click", (e) => {
         longitude = body.coord.lon; // used for sevenDayURL
         latitude = body.coord.lat; // used for sevenDayURL
 
-        //Seven Day forcast
         const sevenDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
         function fetchForcast() {
           fetch(sevenDayUrl)
@@ -66,7 +67,10 @@ btn.addEventListener("click", (e) => {
               sevenDayForcast = document.querySelector("#sevenDayForcast");
               //local variable for fetchForcast end
 
-              sevenDayForcast.innerHTML = body.daily[0].temp.day;
+              function displayWeather() {
+                iconElement.innerHTML = `<img src="icons/${weatherIconId}.png"/>`;
+              }
+              displayWeather();
             });
         }
         fetchForcast();
