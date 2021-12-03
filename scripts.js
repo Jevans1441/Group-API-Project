@@ -16,7 +16,6 @@ windyInit(options, (windyAPI) => {
   const { map } = windyAPI;
   // .map is instance of Leaflet map
 });
-
 // Windy API End----------->
 
 // variables start
@@ -29,9 +28,7 @@ btn.addEventListener("click", (e) => {
   const userZip = zipCode.value;
   const url = `http://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
   removeHidden(); //shows paragraph information
-
   document.forms["form"].reset(); //resets form after input
-  console.log(url);
 
   //fetch current weather for today
   function fetchWeather() {
@@ -39,40 +36,33 @@ btn.addEventListener("click", (e) => {
       .then((Response) => Response.json())
       .then((body) => {
         //local variables for fetchWeather start
+        iconElement = document.querySelector(".weather-icon");
+        todayWeather = document.querySelector("#todayWeather");
         currentTemp = document.querySelector("#currentTemp");
         highTemp = document.querySelector("#highTemp");
         lowTemp = document.querySelector("#lowTemp");
-        feelsLike = document.querySelector("#feelsLike");
-        iconElement = document.querySelector(".weather-icon");
         //local variables for fetchWeather end
 
-        let keys = Object.keys(body.main);
-        for (let i = 0; i < keys.length; i++) {}
-
         weatherIconId = body.weather[0].icon;
-        currentTemp.innerHTML = body.main.temp;
-        highTemp.innerHTML = body.main.temp_max;
-        lowTemp.innerHTML = body.main.temp_min;
-        feelsLike.innerHTML = body.main.feels_like;
         longitude = body.coord.lon; // used for sevenDayURL
         latitude = body.coord.lat; // used for sevenDayURL
 
         //Seven Day forcast
-        const sevenDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
+        const sevenDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,alerts&appid=710540d456e691680abdfc45926ba1b8&units=imperial`;
         function fetchForcast() {
           fetch(sevenDayUrl)
             .then((Response) => Response.json())
             .then((body) => {
               console.log(body.daily);
-              //local variable for fetchForcast start
-              sevenDayForcast = document.querySelector("#sevenDayForcast");
-              //local variable for fetchForcast end
+              console.log(body.current);
 
-              // sevenDayForcast.innerHTML = body.daily[0].temp.day;
-              function displayWeather() {
-                iconElement.innerHTML = `<img src="icons/${weatherIconId}.png"/>`;
-              }
-              displayWeather();
+              todayWeather.innerHTML =
+                iconElement = `<img src="icons/${weatherIconId}.png"/>
+                              </div>
+                                Current: <span class="tempInput" id="currentTemp">${body.current.temp}</span> °F <br>
+                                High: <span class="tempInput" id="highTemp">${body.daily[0].temp.max}</span> °F <br>
+                                Low: <span class="tempInput" id="lowTemp">${body.daily[0].temp.min}</span> °F <br>
+                              </div>`;
             });
         }
         fetchForcast();
@@ -89,17 +79,3 @@ const removeHidden = () => {
   currentCard.classList.remove("hidden");
 };
 // shows paragraph information end
-
-const days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-const d = new Date();
-let day = days[d.getDay()];
-console.log(day);
