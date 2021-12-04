@@ -34,29 +34,36 @@
 
                 <div class="card hidden" id="currentCard">
                     <p1 id="para1" class='hidden'>
-                        <ul class="tabs" data-tabs id="weather-tabs">
-                            <li class="tabs-title is-active"><a href="#todayWeather" aria-selected="true">Today</a></li>
-                            <li class="tabs-title"><a data-tabs-target="tuesday" href="#tuesday">Tuesday</a></li>
-                        </ul>
-
-                        <div class="tabs-content" data-tabs-content="weather-tabs">
-                            <div class="tabs-panel is-active" id="todayWeather">
-                                <h4>Your Local Weather</h4>
-                                <div class="weather-icon">
-                                    <img src="icons/unknown.png" alt="">
+                        <div class="grid-container">
+                            <div class="grid-x">
+                                <ul class="vertical tabs" data-tabs id="weather-tabs">
+                                    <li class="tabs-title is-active"><a href="#todayWeather" aria-selected="true">Today</a></li>
+                                    <li class="tabs-title"><a data-tabs-target="tuesday" href="#tuesday">Tues</a></li>
+                                    <li class="tabs-title"><a data-tabs-target="wednesday" href="#wednesday">Wed</a></li>
+                                    <li class="tabs-title"><a data-tabs-target="thursday" href="#thursday">Thurs</a></li>
+                                    <li class="tabs-title"><a data-tabs-target="friday" href="#friday">Fri</a></li>
+                                    <li class="tabs-title"><a data-tabs-target="saturday" href="#saturday">Sat</a></li>
+                                    <li class="tabs-title"><a data-tabs-target="sunday" href="#sunday">Sun</a></li>
+                                </ul>
+                                <div class="tabs-content" data-tabs-content="weather-tabs">
+                                    <div class="tabs-panel is-active" id="todayWeather">
+                                        <h4>Your Local Weather</h4>
+                                        <div class="weather-icon">
+                                            <img src="icons/unknown.png" alt="">
+                                        </div>
+                                        Current: <span class="tempInput" id="currentTemp"></span> °F <br>
+                                        High: <span class="tempInput" id="highTemp"></span> °F <br>
+                                        Low: <span class="tempInput" id="lowTemp"></span> °F <br>
+                                    </div>
+                                    <div class="tabs-panel" id="tuesday">
+                                    </div>
+                                    <div class="tabs-panel" id="tuesday">
+                                    </div>
+                                    <div class="tabs-panel" id="tuesday">
+                                    </div>
                                 </div>
-                                Current: <span class="tempInput" id="currentTemp"></span> °F <br>
-                                High: <span class="tempInput" id="highTemp"></span> °F <br>
-                                Low: <span class="tempInput" id="lowTemp"></span> °F <br>
-                            </div>
-
-
-                            <div class="tabs-panel" id="forecast">
-                                <h4>7 Day Forecast</h4>
                             </div>
                         </div>
-                    </p1>
-                </div>
             </div>
 
         </div>
@@ -77,3 +84,5 @@
 </body>
 
 </html>
+
+
