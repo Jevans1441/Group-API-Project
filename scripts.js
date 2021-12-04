@@ -66,7 +66,9 @@ btn.addEventListener("click", (e) => {
               // let otherDayForcast = "";
               // body.daily.forEach((day, idx) => {
               //   if (idx == 0) {
+
               //   } else {
+
               //     otherDayForcast +=
               //       iconElement = `<img src="icons/${weatherIconId}.png"/>
               //                 </div>
