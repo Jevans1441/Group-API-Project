@@ -11,7 +11,6 @@ const options = {
 // Initialize Windy API
 windyInit(options, (windyAPI) => {
   // windyAPI is ready, and contain 'map', 'store',
-  // 'picker' and other usefull stuff
 
   const { map } = windyAPI;
   // .map is instance of Leaflet map
@@ -63,6 +62,20 @@ btn.addEventListener("click", (e) => {
                                 High: <span class="tempInput" id="highTemp">${body.daily[0].temp.max}</span> °F <br>
                                 Low: <span class="tempInput" id="lowTemp">${body.daily[0].temp.min}</span> °F <br>
                               </div>`;
+
+              // let otherDayForcast = "";
+              // body.daily.forEach((day, idx) => {
+              //   if (idx == 0) {
+              //   } else {
+              //     otherDayForcast +=
+              //       iconElement = `<img src="icons/${weatherIconId}.png"/>
+              //                 </div>
+              //                   Current: <span class="tempInput" id="currentTemp">${body.current.temp}</span> °F <br>
+              //                   High: <span class="tempInput" id="highTemp">${body.daily[0].temp.max}</span> °F <br>
+              //                   Low: <span class="tempInput" id="lowTemp">${body.daily[0].temp.min}</span> °F <br>
+              //                 </div>`;
+              //   }
+              // });
             });
         }
         fetchForcast();

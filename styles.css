@@ -71,10 +71,13 @@ h4{
     
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (max-width: 750px) {
     #currentCard{
         width: 30vw;
     }    
+    .tabs {
+        display: inline-block;
+    }
 }
 
 img {
