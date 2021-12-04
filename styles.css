@@ -48,6 +48,7 @@ h1{
 }
 .card-divider{
     border: 2px solid rgb(31, 118, 231);
+    background-color: white;
 
 }
 
@@ -71,13 +72,19 @@ h4{
     
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 825px) {
     #currentCard{
-        width: 30vw;
+        width: 80vw;
     }    
-    .tabs {
-        display: inline-block;
+    #windy {
+        width: 80vw;
     }
+}
+
+@media only screen and (min-width: 1300px) {
+    #currentCard{
+        width: 20vw;
+    }    
 }
 
 img {
@@ -85,3 +92,10 @@ img {
     display: block;
     justify-content: center;
 }
+
+.tabs-content {
+    border: none;
+    margin: auto;
+    justify-self: center
+}
+
